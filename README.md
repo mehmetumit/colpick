@@ -1,5 +1,13 @@
-# colpick
-Fast way to pick color at mouse position on linux
+<h1 align="center">colpick</h1>
+<p align="center">
+	<img src="https://img.shields.io/github/languages/code-size/MehmetUmit/colpick" alt="Code Size"/>
+	<img src="https://img.shields.io/github/repo-size/MehmetUmit/colpick" alt="Repo Size"/>
+	<img src="https://img.shields.io/github/license/MehmetUmit/colpick" alt="License"/>
+</p>
+
+---
+
+Fast way to pick color at mouse position on linux.
 
 ![demonstration](https://github.com/MehmetUmit/colpick/blob/main/demo/demo.gif)
 ## Dependencies
