@@ -82,7 +82,8 @@ main() {
 		# Solid color icon for notification
 		convert -bordercolor $BORDER_COLOR -border $BORDER_SIZE -size $ICON_SIZE xc:$hex_color $ICON_PATH
 		# Notify the notification manager
-		notify-send -t $EXPIRE_TIME -i $ICON_PATH $color_code $NOTIFICATION_MESSAGE
+		notify-send -t $EXPIRE_TIME -i $ICON_PATH $color_code "${NOTIFICATION_MESSAGE}"
+
 	fi
 
 	if [ $STDOUT == true ]; then
