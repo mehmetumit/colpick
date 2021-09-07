@@ -10,5 +10,5 @@ install:
 
 uninstall:
 	@rm -rf $(DEST_DIR)/colpick
-	@echo colpick has been installed
+	@echo colpick has been uninstalled
 
