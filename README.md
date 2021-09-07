@@ -1,5 +1,7 @@
 # colpick
 Fast way to pick color at mouse position on linux
+
+![demonstration](https://github.com/MehmetUmit/colpick/blob/main/demo/demo.gif)
 ## Dependencies
 * `ImageMagick`
 * `scrot`
