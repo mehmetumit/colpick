@@ -27,7 +27,7 @@ sys     0m0.135s
 ## Installation
 ```sh
 # Clone the repository
-$ git clone https://github.com/MehmetUmit/colpick.git
+$ git clone https://github.com/mehmetumit/colpick.git
 # Change directory
 $ cd colpick
 # Install with make
