@@ -1,0 +1,7 @@
+#/bin/sh
+col1="#123456"
+col2="#0E7FBF" 
+col3="#00FE00" 
+col4="#E55A51"
+echo "$col1 $col2 $col3 $col4"
+convert -size 300x300 xc:$col1 xc:$col2 xc:$col3 xc:$col4 +append -rotate 90 demo.png && feh --image-bg black ./demo.png
