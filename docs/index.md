@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+<h1 align="center">colpick</h1>
+<p align="center">
+	<img src="https://img.shields.io/github/languages/code-size/MehmetUmit/colpick" alt="Code Size"/>
+	<img src="https://img.shields.io/github/repo-size/MehmetUmit/colpick" alt="Repo Size"/>
+	<img src="https://img.shields.io/github/license/MehmetUmit/colpick" alt="License"/>
+</p>
 
-You can use the [editor on GitHub](https://github.com/mehmetumit/colpick/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+---
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Fast way to pick color at mouse position on linux.
 
-### Markdown
+![demonstration](https://raw.githubusercontent.com/mehmetumit/colpick/main/demo/demo.gif)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Dependencies
+* `ImageMagick`
+* `scrot`
+* `xdotool`
+* `xclip` (optional)
+* notification daemon (optional)
 
-```markdown
-Syntax highlighted code block
+## Execution Time
+```sh
+$ time colpick -n
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+real	0m0.326s
+user	0m0.253s
+sys     0m0.135s
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Installation
+```sh
+# Clone the repository
+$ git clone https://github.com/mehmetumit/colpick.git
+# Change directory
+$ cd colpick
+# Install with make
+$ sudo make install
+```
 
-### Jekyll Themes
+## Usage
+```
+$ colpick -h
+usage: colpick [OPTIONS...]
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mehmetumit/colpick/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Pick color at mouse position
 
-### Support or Contact
+options:
+	--help(-h)			Print this text and exit
+	--version(-v)			Print colpick's version and exit
+	--copy_to_clipboard(-c) 	Copy color code to clipboard
+	--stdout(-so)			Output the color value to stdout
+	--rgb				Show the color code as RGB instead of HEX
+	--notify(-n)			Send the color code to notification daemon with solid color icon
+	--icon_size(-ics)		Size of the notification solid color icon (default: 32x32)
+	--border(-b)			Set border size of notification icon (default: 1)
+	--border_color(-bc)		Set border color of notification icon (default: white)
+	--expire_time(-t)		Set notification expire time as miliseconds
+	--notification_message(-m)	Set notification message under color code
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```
