@@ -7,7 +7,10 @@
 
 ---
 
-Fast way to pick color at mouse position on linux.
+A Linux tool that allows users to pick color on mouse position.
+* Integrated configuration option for allowing users to adapt their workflow.
+* Bitmap screenshot and mouse position used to get pixel color codes.
+* Notifier, hex to RGB conversion and clipboard features implemented.
 
 ![demonstration](https://github.com/MehmetUmit/colpick/blob/main/demo/demo.gif)
 ## Dependencies
