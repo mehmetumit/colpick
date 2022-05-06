@@ -1,8 +1,8 @@
 <h1 align="center">colpick</h1>
 <p align="center">
-	<img src="https://img.shields.io/github/languages/code-size/MehmetUmit/colpick" alt="Code Size"/>
-	<img src="https://img.shields.io/github/repo-size/MehmetUmit/colpick" alt="Repo Size"/>
-	<img src="https://img.shields.io/github/license/MehmetUmit/colpick" alt="License"/>
+	<img src="https://img.shields.io/github/languages/code-size/mehmetumit/colpick" alt="Code Size"/>
+	<img src="https://img.shields.io/github/repo-size/mehmetumit/colpick" alt="Repo Size"/>
+	<img src="https://img.shields.io/github/license/mehmetumit/colpick" alt="License"/>
 </p>
 
 ---
@@ -12,23 +12,25 @@ A Linux tool that allows users to pick color on mouse position.
 * Bitmap screenshot and mouse position used to get pixel color codes.
 * Notifier, hex to RGB conversion and clipboard features implemented.
 
-![demonstration](https://github.com/MehmetUmit/colpick/blob/main/demo/demo.gif)
+![demonstration](https://raw.githubusercontent.com/mehmetumit/colpick/main/demo/demo.gif)
 ## Dependencies
 * `ImageMagick`
 * `scrot`
 * `xdotool`
 * `xclip` (optional)
 * notification daemon (optional)
+
 ## Execution Time
-```sh
+```
 $ time colpick -n
 
 real	0m0.326s
 user	0m0.253s
 sys     0m0.135s
 ```
+
 ## Installation
-```sh
+```
 # Clone the repository
 $ git clone https://github.com/mehmetumit/colpick.git
 # Change directory
@@ -36,6 +38,7 @@ $ cd colpick
 # Install with make
 $ sudo make install
 ```
+
 ## Usage
 ```
 $ colpick -h
