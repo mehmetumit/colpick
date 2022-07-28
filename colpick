@@ -1,13 +1,13 @@
 #!/bin/sh
-#           _       _      _    
+#           _       _      _
 #  ___ ___ | |_ __ (_) ___| | __
 # / __/ _ \| | '_ \| |/ __| |/ /
-#| (_| (_) | | |_) | | (__|   < 
+#| (_| (_) | | |_) | | (__|   <
 # \___\___/|_| .__/|_|\___|_|\_\
-#            |_|               
-# 
+#            |_|
+#
 #author: Mehmet Ümit Özden
-#dependencies: ImageMagick, scrot, xdotool, xclip(optional), notification daemon(optional)
+#dependencies: ImageMagick, scrot, xdotool, xclip(optional), notification-daemon(optional)
 
 VERSION="1.0"
 TEMP_DIR="/tmp"
@@ -42,59 +42,41 @@ options:
 EOF
 }
 check_dependencies() {
-	if [ $COPY_TO_CLIPBOARD == true ]; then
-		! command -v xclip &>/dev/null && 
-			echo "xclip need to be installed" && exit 1 
+	if [ $COPY_TO_CLIPBOARD = true ]; then
+		! command -v xclip >/dev/null && echo "xclip need to be installed" && exit 1
 	else
-		! command -v convert &>/dev/null &&
-			echo "ImageMagick need to be installed" && exit 1
-		! command -v scrot &>/dev/null &&
-			echo "scrot need to be installed" && exit 1
-		! command -v xdotool &>/dev/null &&
-			echo "xdotool need to be installed" && exit 1 
+		! command -v convert >/dev/null && echo "ImageMagick need to be installed" && exit 1
+		! command -v scrot >/dev/null && echo "scrot need to be installed" && exit 1
+		! command -v xdotool >/dev/null && echo "xdotool need to be installed" && exit 1
 	fi
-}
-# Converts hex code to rgb which includes hashtag
-hex_to_rgb() { 
-	rgb=$(printf "(%d,%d,%d)" 0x"${1:1:2}" 0x"${1:3:2}" 0x"${1:5:2}")
-	echo $rgb
-}
-# Get color code depends on color type
-get_color_code(){
-	if [ $COLOR_TYPE == "rgb" ]; then
-		color_code="$(hex_to_rgb $1)"
-	else
-		color_code=$1
-	fi
-	echo $color_code
 }
 main() {
 	# x,y
 	mouse_pos=$(xdotool getmouselocation | awk -F"[:a-z=&\"]*" '{printf "%d,%d",$2,$3}')
-	# Bitmap for high accuarcy and speed
-	hex_color=$(scrot -o "$TEMP_DIR/colpick.bmp" && convert "$TEMP_DIR/colpick.bmp" -set colorspace RGB -format "#%[hex:p{$mouse_pos}]" info:-)
-	color_code="$(get_color_code $hex_color)"
+	# Bitmap for high accuracy and speed
+	# We can use only ImageMagick too but scrot is much faster
+	color_code=$(scrot -a $mouse_pos,1,1 -o "$TEMP_DIR/colpick.bmp" && convert "$TEMP_DIR/colpick.bmp" -set colorspace RGB txt:- | ([ $COLOR_TYPE = "rgb" ] && awk 'NR==2{ print $2 }' || awk 'NR==2{ print $3 }') )
 
-	if [ $COPY_TO_CLIPBOARD == true ]; then
-		printf $color_code | xclip -selection clipboard
+	if [ $COPY_TO_CLIPBOARD = true ]; then
+		printf "$color_code" | xclip -selection clipboard
 	fi
 
-	if [ $NOTIFY == true ]; then
+	if [ $NOTIFY = true ]; then
+		[ $COLOR_TYPE = "rgb" ] && xc="rgb$color_code" || xc="$color_code"
 		# Solid color icon for notification
-		convert -bordercolor $BORDER_COLOR -border $BORDER_SIZE -size $ICON_SIZE xc:$hex_color $ICON_PATH
+		convert -bordercolor $BORDER_COLOR -border $BORDER_SIZE -size $ICON_SIZE xc:"$xc" $ICON_PATH
 		# Notify the notification manager
-		notify-send -t $EXPIRE_TIME -i $ICON_PATH $color_code "${NOTIFICATION_MESSAGE}"
-
+		notify-send -t $EXPIRE_TIME -i $ICON_PATH "$color_code" "$NOTIFICATION_MESSAGE"
 	fi
 
-	if [ $STDOUT == true ]; then
-		echo $color_code
+	if [ $STDOUT = true ]; then
+		echo "$color_code"
 	fi
 }
 
 check_dependencies
 
-while [[ "$1" ]]; do
+while [ "$1" ]; do
     case "$1" in
         -h|--help) help && exit ;;
         -v|--version) echo $VERSION && exit ;;

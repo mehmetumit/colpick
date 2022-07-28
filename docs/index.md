@@ -9,8 +9,8 @@
 
 A Linux tool that allows users to pick color on mouse position.
 * Integrated configuration option for allowing users to adapt their workflow.
-* Bitmap screenshot and mouse position used to get pixel color codes.
-* Notifier, hex to RGB conversion and clipboard features implemented.
+* 1x1 Bitmap screenshot of mouse position used to get pixel color codes.
+* Notifier, color codes(RGB and hex) and clipboard features implemented.
 
 ![demonstration](https://raw.githubusercontent.com/mehmetumit/colpick/main/demo/demo.gif)
 ## Dependencies
@@ -18,15 +18,15 @@ A Linux tool that allows users to pick color on mouse position.
 * `scrot`
 * `xdotool`
 * `xclip` (optional)
-* notification daemon (optional)
+* notification-daemon (optional)
 
 ## Execution Time
 ```
 $ time colpick -n
 
-real	0m0.326s
-user	0m0.253s
-sys     0m0.135s
+real	0m0.057s
+user	0m0.037s
+sys     0m0.028s
 ```
 
 ## Installation
@@ -36,7 +36,7 @@ $ git clone https://github.com/mehmetumit/colpick.git
 # Change directory
 $ cd colpick
 # Install with make
-$ sudo make install
+$ make install
 ```
 
 ## Usage

@@ -1,14 +1,18 @@
-DEST_DIR ?= /usr/bin
+PREFIX ?= /usr/local/
+DEST_DIR ?= $(PREFIX)/bin
+TARGET_FILE ?= colpick
+SRC_FILE ?= colpick
 
 all:
-	@echo Run \'make install\' to install colpick
+	@echo Run \'make install\' to install $(SRC_FILE)
+	@echo Run \'make uninstall\' to uninstall $(SRC_FILE)
 
 install:
-	@cp colpick $(DEST_DIR)/colpick
-	@chmod 755 $(DEST_DIR)/colpick
-	@echo colpick has been installed
+	@cp $(SRC_FILE) $(DEST_DIR)/$(TARGET_FILE)
+	@chmod 755 $(DEST_DIR)/$(TARGET_FILE)
+	@echo $(SRC_FILE) has been installed
 
 uninstall:
-	@rm -rf $(DEST_DIR)/colpick
-	@echo colpick has been uninstalled
+	@rm -f $(DEST_DIR)/$(TARGET_FILE)
+	@echo $(SRC_FILE) has been uninstalled
 
