@@ -25,7 +25,7 @@ help() {
     cat <<EOF
 usage: colpick [OPTIONS...]
 
-Pick color at mouse position
+Pick color at the current position of the mouse
 
 options:
 	--help(-h)		Print this text and exit
@@ -74,8 +74,6 @@ main() {
 	fi
 }
 
-check_dependencies
-
 while [ "$1" ]; do
     case "$1" in
         -h|--help) help && exit ;;
@@ -93,4 +91,5 @@ while [ "$1" ]; do
     shift
 done
 
+check_dependencies
 main

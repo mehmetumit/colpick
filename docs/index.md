@@ -7,7 +7,7 @@
 
 ---
 
-A Linux tool that allows users to pick color on mouse position.
+A Linux tool that allows users to pick color at the current position of the mouse.
 * Integrated configuration option for allowing users to adapt their workflow.
 * 1x1 Bitmap screenshot of mouse position used to get pixel color codes.
 * Notifier, color codes(RGB and hex) and clipboard features implemented.
@@ -30,13 +30,13 @@ sys     0m0.028s
 ```
 
 ## Installation
-```
+```sh
 # Clone the repository
-$ git clone https://github.com/mehmetumit/colpick.git
+git clone https://github.com/mehmetumit/colpick.git
 # Change directory
-$ cd colpick
+cd colpick
 # Install with make
-$ make install
+make install
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ $ make install
 $ colpick -h
 usage: colpick [OPTIONS...]
 
-Pick color at mouse position
+Pick color at the current position of the mouse
 
 options:
 	--help(-h)			Print this text and exit
