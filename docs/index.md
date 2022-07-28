@@ -2,6 +2,8 @@
 <p align="center">
 	<img src="https://img.shields.io/github/languages/code-size/mehmetumit/colpick" alt="Code Size"/>
 	<img src="https://img.shields.io/github/repo-size/mehmetumit/colpick" alt="Repo Size"/>
+	<img src="https://img.shields.io/github/stars/mehmetumit/colpick?color=yellow" alt="Stars"/>
+	<a href="https://aur.archlinux.org/packages/colpick><img src="https://img.shields.io/aur/version/colpick?color=%23123456" alt="AUR Version"/></a>
 	<img src="https://img.shields.io/github/license/mehmetumit/colpick" alt="License"/>
 </p>
 
@@ -30,14 +32,25 @@ sys     0m0.028s
 ```
 
 ## Installation
-```sh
-# Clone the repository
-git clone https://github.com/mehmetumit/colpick.git
-# Change directory
-cd colpick
-# Install with make
-make install
-```
+- Arch Linux:
+	- Install via AUR
+		```sh
+		yay -S colpick
+		```
+	- Or by using the PKGBUILD [colpick](pkgbuilds/PKGBUILD)
+		```sh
+		cd pkgbuilds/
+		makepkg -si
+		```
+- In General:
+	```sh
+	# Clone the repository
+	git clone https://github.com/mehmetumit/colpick.git
+	# Change directory
+	cd colpick
+	# Install with make
+	make install
+	```
 
 ## Usage
 ```
