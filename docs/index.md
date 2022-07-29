@@ -37,7 +37,7 @@ sys     0m0.028s
 		```sh
 		yay -S colpick
 		```
-	- Or by using the PKGBUILD [colpick](pkgbuilds/PKGBUILD)
+	- Or by using the [PKGBUILD](pkgbuilds/PKGBUILD)
 		```sh
 		cd pkgbuilds/
 		makepkg -si
